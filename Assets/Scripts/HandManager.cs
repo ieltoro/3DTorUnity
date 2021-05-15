@@ -22,7 +22,6 @@ public class HandManager : MonoBehaviour
             List<InputDevice> devices = new List<InputDevice>();
             InputDeviceCharacteristics leftcontroller = InputDeviceCharacteristics.Left | InputDeviceCharacteristics.Controller;
             InputDevices.GetDevicesWithCharacteristics(leftcontroller, devices);
-            print(devices[0].name);
             if (devices.Count > 0)
             {
                 targetDevice = devices[0];
@@ -33,14 +32,11 @@ public class HandManager : MonoBehaviour
             List<InputDevice> devices = new List<InputDevice>();
             InputDeviceCharacteristics rightcontroller = InputDeviceCharacteristics.Right | InputDeviceCharacteristics.Controller;
             InputDevices.GetDevicesWithCharacteristics(rightcontroller, devices);
-            print(devices[0].name);
             if (devices.Count > 0)
             {
                 targetDevice = devices[0];
             }
         }
-        print("hand.ToString() = " + hand.ToString());
-
     }
 
     void Update()
