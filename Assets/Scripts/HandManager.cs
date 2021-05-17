@@ -143,6 +143,7 @@ public class HandManager : MonoBehaviour
     }
     public void HideHand(bool answer)
     {
+        print("Hide hand");
         handObj.SetActive(!answer);
     }
 }

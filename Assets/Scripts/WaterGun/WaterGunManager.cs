@@ -14,19 +14,10 @@ public class WaterGunManager : MonoBehaviour
 
     public void ActivateGun(bool a, bool hand)
     {
+        StopAllCoroutines();
         this.enabled = a;
         leftHand = hand;
         canShoot = a;
-
-        print("Water gun is enabled? " + a + ": And using left hand? " + hand);
-        if (a)
-        {
-
-        }
-        else
-        {
-
-        }
     }
 
     private void Update()
@@ -42,7 +33,6 @@ public class WaterGunManager : MonoBehaviour
                     canShoot = false;
                     ShootPaint();
                 }
-                    
             }
         }
         else
@@ -68,7 +58,6 @@ public class WaterGunManager : MonoBehaviour
     IEnumerator ShootWait()
     {
         yield return new WaitForSeconds(shootCD);
-        part.Stop();
         canShoot = true;
     }
 }

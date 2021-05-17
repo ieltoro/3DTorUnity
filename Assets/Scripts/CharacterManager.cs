@@ -23,7 +23,7 @@ public class CharacterManager : MonoBehaviour
     public void PickedUpWaterGun(bool a, bool leftHand)
     {
         print("PickedUpWaterGun");
-        waterG.ActivateGun(true, leftHand);
+        waterG.ActivateGun(a, leftHand);
     }
     private void Update()
     {

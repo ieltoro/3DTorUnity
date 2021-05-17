@@ -12,32 +12,62 @@ public class XRCustomGrab : XRGrabInteractable
     protected override void OnSelectEnter(XRBaseInteractor interactor)
     {
         bool a = true;
-        bool leftH = interactor.GetComponent<HandManager>().leftHand;
-        if (item.ToString() == "Watergun")
+        print(interactor.transform.name);
+        if (interactor.transform.name == "Left Hand")
         {
-            cm.PickedUpWaterGun(a, leftH);
+            interactor.GetComponent<HandManager>().HideHand(true);
+            if (item.ToString() == "Watergun")
+            {
+                cm.PickedUpWaterGun(a, true);
+            }
+            else if (item.ToString() == "RCRemote")
+            {
+                cm.PickedUpRCRemote(a, true);
+            }
         }
-        else if (item.ToString() == "RCRemote")
+        if (interactor.transform.name == "Right Hand")
         {
-            cm.PickedUpRCRemote(a, leftH);
+            interactor.GetComponent<HandManager>().HideHand(true);
+            if (item.ToString() == "Watergun")
+            {
+                cm.PickedUpWaterGun(a, false);
+            }
+            else if (item.ToString() == "RCRemote")
+            {
+                cm.PickedUpRCRemote(a, false);
+            }
         }
 
-
-        interactor.GetComponent<HandManager>().HideHand(a);
+        
         base.OnSelectEnter(interactor);
     }
     protected override void OnSelectExit(XRBaseInteractor interactor)
     {
         bool a = false;
-        if (item.ToString() == "Watergun")
+        if (interactor.transform.name == "Left Hand")
         {
-            cm.PickedUpWaterGun(a, false);
+            interactor.GetComponent<HandManager>().HideHand(false);
+            if (item.ToString() == "Watergun")
+            {
+                cm.PickedUpWaterGun(a, true);
+            }
+            else if (item.ToString() == "RCRemote")
+            {
+                cm.PickedUpRCRemote(a, true);
+            }
         }
-        else if (item.ToString() == "RCRemote")
+        if (interactor.transform.name == "Right Hand")
         {
-            cm.PickedUpRCRemote(a, false);
+            interactor.GetComponent<HandManager>().HideHand(false);
+            if (item.ToString() == "Watergun")
+            {
+                cm.PickedUpWaterGun(a, false);
+            }
+            else if (item.ToString() == "RCRemote")
+            {
+                cm.PickedUpRCRemote(a, false);
+            }
         }
-        interactor.GetComponent<HandManager>().HideHand(a);
         base.OnSelectExit(interactor);
     }
 
