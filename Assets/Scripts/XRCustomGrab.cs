@@ -6,8 +6,8 @@ using UnityEngine.XR.Interaction.Toolkit;
 public class XRCustomGrab : XRGrabInteractable
 {
     [SerializeField] CharacterManager cm;
-    public enum Item { Watergun, RCRemote }
-    public Item item = Item.Watergun;
+    public enum Item { None, Watergun, RCRemote }
+    public Item item = Item.None;
 
     protected override void OnSelectEnter(XRBaseInteractor interactor)
     {

@@ -5,9 +5,12 @@ using UnityEngine;
 public class WaterGunManager : MonoBehaviour
 {
     [SerializeField] CharacterManager cm;
-    [SerializeField] float triggerValue, gripValue, shootCD;
+
+    [SerializeField] float shootCD;
+    [SerializeField] ParticleSystem part;
     bool canShoot;
     bool leftHand;
+    float triggerValue;
 
     public void ActivateGun(bool a, bool hand)
     {
@@ -35,7 +38,11 @@ public class WaterGunManager : MonoBehaviour
             if(triggerValue > 0.5f)
             {
                 if(canShoot)
+                {
+                    canShoot = false;
                     ShootPaint();
+                }
+                    
             }
         }
         else
@@ -44,19 +51,24 @@ public class WaterGunManager : MonoBehaviour
             if (triggerValue > 0.5f)
             {
                 if (canShoot)
+                {
+                    canShoot = false;
                     ShootPaint();
+                }
             }
         }
         #endregion
     }
     public void ShootPaint()
     {
-        canShoot = false;
+        print("Shoot");
+        part.Play();
         StartCoroutine(ShootWait());
     }
     IEnumerator ShootWait()
     {
         yield return new WaitForSeconds(shootCD);
+        part.Stop();
         canShoot = true;
     }
 }
