@@ -5,8 +5,7 @@ public class XROffsetGrab : XRGrabInteractable
 {
     Vector3 initialAttachLocalPos;
     Quaternion initialAttachLocalRot;
-    [SerializeField] bool rcRemote;
-    [SerializeField] 
+
     private void Start()
     {
         if(!attachTransform)
@@ -22,11 +21,6 @@ public class XROffsetGrab : XRGrabInteractable
 
     protected override void OnSelectEnter(XRBaseInteractor interactor)
     {
-        if(rcRemote)
-        {
-            interactor.GetComponent<HandManager>().DisplayRemoteController(true);
-        }
-
         interactor.GetComponent<HandManager>().HideHand(true);
         if (interactor is XRDirectInteractor)
         {
@@ -42,10 +36,6 @@ public class XROffsetGrab : XRGrabInteractable
     }
     protected override void OnSelectExit(XRBaseInteractor interactor)
     {
-        if (rcRemote)
-        {
-            interactor.GetComponent<HandManager>().DisplayRemoteController(false);
-        }
         interactor.GetComponent<HandManager>().HideHand(false);
         base.OnSelectExit(interactor);
     }

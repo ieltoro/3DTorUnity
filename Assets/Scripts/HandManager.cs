@@ -5,8 +5,7 @@ using UnityEngine.XR;
 
 public class HandManager : MonoBehaviour
 {
-    public enum Hand { Left, Right }
-    public Hand hand = Hand.Left;
+    public bool leftHand;
     InputDevice targetDevice;
     Vector2 inputJoystick;
     [SerializeField] Animator handAnim, indexAnim, thumbAnim;
@@ -17,7 +16,7 @@ public class HandManager : MonoBehaviour
     public CharacterManager cm;
     void Start()
     {
-        if (hand.ToString() == "Left")
+        if (leftHand)
         {
             List<InputDevice> devices = new List<InputDevice>();
             InputDeviceCharacteristics leftcontroller = InputDeviceCharacteristics.Left | InputDeviceCharacteristics.Controller;
@@ -42,7 +41,7 @@ public class HandManager : MonoBehaviour
     void Update()
     {
         #region Oculus Touch
-        if(hand.ToString() == "Left")
+        if(leftHand)
         {
             triggerValue = OVRInput.Get(OVRInput.Axis1D.PrimaryIndexTrigger, OVRInput.Controller.LTouch);
             gripValue = OVRInput.Get(OVRInput.Axis1D.PrimaryHandTrigger, OVRInput.Controller.LTouch);
@@ -133,7 +132,7 @@ public class HandManager : MonoBehaviour
 
     public void VibrateController()
     {
-        if (hand.ToString() == "Left")
+        if (leftHand)
         {
             OVRInput.SetControllerVibration(1f, 1f, OVRInput.Controller.LTouch);
         }
@@ -146,21 +145,4 @@ public class HandManager : MonoBehaviour
     {
         handObj.SetActive(!answer);
     }
-
-    #region RC car
-
-    [SerializeField] RCCarManager rcm;
-    public void DisplayRemoteController(bool answer)
-    {
-        
-        cm.PickedUpRCRemote();
-        rcm.enabled = answer;
-        if (hand.ToString() == "Left")
-            rcm.leftHandHolding = true;
-        else
-            rcm.leftHandHolding = false;
-        rcm.active = answer;
-    }
-
-    #endregion
 }

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2286292293389033504}
   - component: {fileID: 2286292293389033505}
   - component: {fileID: 2286292293389033510}
-  - component: {fileID: 2286292293389033511}
+  - component: {fileID: 1435505995320040326}
   m_Layer: 0
   m_Name: Remote RC
   m_TagString: Controller
@@ -113,7 +113,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &2286292293389033511
+--- !u!114 &1435505995320040326
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -122,7 +122,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2286292293389033508}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ccf961aeac5a7744bc431231439e164, type: 3}
+  m_Script: {fileID: 11500000, guid: 6ceb8247220b39a41834fadca2561253, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_InteractionManager: {fileID: 0}
@@ -187,4 +187,5 @@ MonoBehaviour:
   m_ThrowAngularVelocityScale: 0.25
   m_GravityOnDetach: 0
   m_RetainTransformParent: 1
-  rcRemote: 1
+  cm: {fileID: 0}
+  item: 1

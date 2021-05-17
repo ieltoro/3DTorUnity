@@ -11,6 +11,7 @@ TagManager:
   - Teleport
   - RCCar
   - Grab
+  - Watergun
   layers:
   - Default
   - TransparentFX

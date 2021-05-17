@@ -9,11 +9,21 @@ public class CharacterManager : MonoBehaviour
     [SerializeField] GameObject rcRemoteObj;
     [SerializeField] XRController teleportRay;
     [SerializeField] InputHelpers.Button teleButton;
+    [Header("Items")]
+    [SerializeField] WaterGunManager waterG;
+    [SerializeField] RCCarManager rcm;
     public bool CanMove = true;
 
-    public void PickedUpRCRemote()
+    public void PickedUpRCRemote(bool a, bool leftHand)
     {
-
+        rcm.leftHandHolding = leftHand;
+        rcm.enabled = a;
+        rcm.active = a;
+    }
+    public void PickedUpWaterGun(bool a, bool leftHand)
+    {
+        print("PickedUpWaterGun");
+        waterG.ActivateGun(true, leftHand);
     }
     private void Update()
     {

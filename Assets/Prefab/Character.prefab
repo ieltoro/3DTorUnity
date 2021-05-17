@@ -475,7 +475,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 460a1b7f86826a14cac0e28a7079e436, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hand: 1
+  leftHand: 0
   handAnim: {fileID: 3170644379479616781}
   indexAnim: {fileID: 3170644379763361862}
   thumbAnim: {fileID: 3170644378909628594}
@@ -485,7 +485,6 @@ MonoBehaviour:
   triggerValue: 0
   gripValue: 0
   cm: {fileID: 0}
-  rcm: {fileID: 0}
 --- !u!1 &7020604081347475378
 GameObject:
   m_ObjectHideFlags: 0
@@ -581,6 +580,8 @@ MonoBehaviour:
   rcRemoteObj: {fileID: 0}
   teleportRay: {fileID: 2776240185499156920}
   teleButton: 14
+  waterG: {fileID: 0}
+  rcm: {fileID: 0}
   CanMove: 1
 --- !u!1 &7020604082033566053
 GameObject:
@@ -753,7 +754,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 460a1b7f86826a14cac0e28a7079e436, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hand: 0
+  leftHand: 0
   handAnim: {fileID: 2569423954755414422}
   indexAnim: {fileID: 2569423955101924075}
   thumbAnim: {fileID: 2569423954761416794}
@@ -763,7 +764,6 @@ MonoBehaviour:
   triggerValue: 0
   gripValue: 0
   cm: {fileID: 0}
-  rcm: {fileID: 0}
 --- !u!1 &7020604082943701792
 GameObject:
   m_ObjectHideFlags: 0
