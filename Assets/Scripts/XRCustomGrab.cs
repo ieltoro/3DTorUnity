@@ -6,7 +6,7 @@ using UnityEngine.XR.Interaction.Toolkit;
 public class XRCustomGrab : XRGrabInteractable
 {
     [SerializeField] CharacterManager cm;
-    public enum Item { None, Watergun, RCRemote }
+    public enum Item { None, Watergun, RCRemote, ColorBall}
     public Item item = Item.None;
 
     protected override void OnSelectEnter(XRBaseInteractor interactor)
@@ -24,6 +24,10 @@ public class XRCustomGrab : XRGrabInteractable
             {
                 cm.PickedUpRCRemote(a, true);
             }
+            else if (item.ToString() == "ColorBall")
+            {
+                interactor.GetComponent<BallCollision>().active = true;
+            }
         }
         if (interactor.transform.name == "Right Hand")
         {
@@ -35,6 +39,10 @@ public class XRCustomGrab : XRGrabInteractable
             else if (item.ToString() == "RCRemote")
             {
                 cm.PickedUpRCRemote(a, false);
+            }
+            else if (item.ToString() == "ColorBall")
+            {
+                interactor.GetComponent<BallCollision>().active = true;
             }
         }
 

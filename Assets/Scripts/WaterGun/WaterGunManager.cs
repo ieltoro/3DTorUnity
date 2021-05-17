@@ -8,7 +8,9 @@ public class WaterGunManager : MonoBehaviour
 
     [SerializeField] float shootCD;
     [SerializeField] ParticleSystem part;
-    bool canShoot;
+    [SerializeField] GameObject bulletColorPrefab;
+    [SerializeField] Transform outFrom;
+    float canShoot = 0;
     bool leftHand;
     float triggerValue;
 
@@ -17,7 +19,6 @@ public class WaterGunManager : MonoBehaviour
         StopAllCoroutines();
         this.enabled = a;
         leftHand = hand;
-        canShoot = a;
     }
 
     private void Update()
@@ -26,23 +27,19 @@ public class WaterGunManager : MonoBehaviour
         if (leftHand)
         {
             triggerValue = OVRInput.Get(OVRInput.Axis1D.PrimaryIndexTrigger, OVRInput.Controller.LTouch);
-            if(triggerValue > 0.5f)
+            if(triggerValue > 0.5f && Time.time >= canShoot)
             {
-                if(canShoot)
-                {
-                    canShoot = false;
-                    ShootPaint();
-                }
+                canShoot = Time.time + 1 / shootCD;
+                ShootPaint();
             }
         }
         else
         {
             triggerValue = OVRInput.Get(OVRInput.Axis1D.PrimaryIndexTrigger, OVRInput.Controller.RTouch);
-            if (triggerValue > 0.5f)
+            if (triggerValue > 0.5f && Time.time >= canShoot)
             {
-                if (canShoot)
                 {
-                    canShoot = false;
+                    canShoot = Time.time + 1 / shootCD;
                     ShootPaint();
                 }
             }
@@ -52,12 +49,7 @@ public class WaterGunManager : MonoBehaviour
     public void ShootPaint()
     {
         print("Shoot");
-        part.Play();
-        StartCoroutine(ShootWait());
+        Instantiate(bulletColorPrefab, outFrom.position, outFrom.rotation);
     }
-    IEnumerator ShootWait()
-    {
-        yield return new WaitForSeconds(shootCD);
-        canShoot = true;
-    }
+
 }

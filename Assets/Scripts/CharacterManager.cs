@@ -28,12 +28,19 @@ public class CharacterManager : MonoBehaviour
     private void Update()
     {
         if(CanMove)
-            teleportRay.gameObject.SetActive(IfTeleActive());
+        {
+            if(IsTeleActive())
+            {
+                teleportRay.gameObject.GetComponent<LineRenderer>().enabled = false;
+                teleportRay.gameObject.GetComponent<XRInteractorLineVisual>().enabled = false;
+            }
+        }
+            teleportRay.gameObject.SetActive(IsTeleActive());
         
     }
-    bool IfTeleActive()
+    bool IsTeleActive()
     {
-        InputHelpers.IsPressed(teleportRay.inputDevice, teleButton, out bool isUsing, 0.1f);
+        InputHelpers.IsPressed(teleportRay.inputDevice, teleButton, out bool isUsing, 0.2f);
         return isUsing;
     }
 }

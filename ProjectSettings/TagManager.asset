@@ -12,6 +12,7 @@ TagManager:
   - RCCar
   - Grab
   - Watergun
+  - ColorBullet
   layers:
   - Default
   - TransparentFX
@@ -28,9 +29,9 @@ TagManager:
   - Teleport
   - Head
   - Object
-  - 
-  - 
-  - 
+  - Color
+  - Drawer
+  - Hand
   - 
   - 
   - 
