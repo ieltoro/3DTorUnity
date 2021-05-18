@@ -13,6 +13,8 @@ TagManager:
   - Grab
   - Watergun
   - ColorBullet
+  - ColorTank
+  - WaterTank
   layers:
   - Default
   - TransparentFX
@@ -32,8 +34,8 @@ TagManager:
   - Color
   - Drawer
   - Hand
-  - 
-  - 
+  - Tank
+  - TankPos
   - 
   - 
   - 

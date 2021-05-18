@@ -5,6 +5,8 @@ public class XROffsetGrab : XRGrabInteractable
 {
     Vector3 initialAttachLocalPos;
     Quaternion initialAttachLocalRot;
+    public enum Item { None, ColorTank}
+    public Item item = Item.None;
 
     private void Start()
     {

@@ -12,6 +12,7 @@ public class CharacterManager : MonoBehaviour
     [Header("Items")]
     [SerializeField] WaterGunManager waterG;
     [SerializeField] RCCarManager rcm;
+    [SerializeField] SpaceShipManager space;
     public bool CanMove = true;
 
     public void PickedUpRCRemote(bool a, bool leftHand)
@@ -22,8 +23,11 @@ public class CharacterManager : MonoBehaviour
     }
     public void PickedUpWaterGun(bool a, bool leftHand)
     {
-        print("PickedUpWaterGun");
         waterG.ActivateGun(a, leftHand);
+    }
+    public void PickedUpSpaceShip(bool a, bool leftHand)
+    {
+        space.SpaceShipActive(a, leftHand);
     }
     private void Update()
     {

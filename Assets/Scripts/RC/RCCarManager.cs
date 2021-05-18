@@ -56,10 +56,10 @@ public class RCCarManager : MonoBehaviour
                 reverse = false;
             }
         }
-        else
-        {
-            inputJoystick = new Vector2(0, 0);
-        }
+        //else
+        //{
+        //    inputJoystick = new Vector2(0, 0);
+        //}
     }
 
     private void FixedUpdate()
