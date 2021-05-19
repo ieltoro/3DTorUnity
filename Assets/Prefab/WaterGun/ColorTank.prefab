@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 4296322157579029520}
   - component: {fileID: 8126739671649328219}
   - component: {fileID: 1514983648867937108}
-  - component: {fileID: 3904823899000797208}
   - component: {fileID: 9223127534441384180}
+  - component: {fileID: 359201661426260805}
   m_Layer: 18
   m_Name: ColorTank
   m_TagString: ColorTank
@@ -66,7 +66,23 @@ MonoBehaviour:
   color: {r: 0, g: 0, b: 0, a: 0}
   usingTank: 0
   rb: {fileID: 8126739671649328219}
---- !u!114 &3904823899000797208
+  collider: {fileID: 9223127534441384180}
+  wgm: {fileID: 0}
+--- !u!136 &9223127534441384180
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2526840367222400625}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.01
+  m_Height: 0.055130094
+  m_Direction: 2
+  m_Center: {x: 0, y: 0, z: 0.024325695}
+--- !u!114 &359201661426260805
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -75,14 +91,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 2526840367222400625}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ceb8247220b39a41834fadca2561253, type: 3}
+  m_Script: {fileID: 11500000, guid: 6ccf961aeac5a7744bc431231439e164, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_InteractionManager: {fileID: 0}
   m_Colliders: []
   m_InteractionLayerMask:
     serializedVersion: 2
-    m_Bits: 524087
+    m_Bits: 4294967295
   m_OnFirstHoverEnter:
     m_PersistentCalls:
       m_Calls: []
@@ -140,22 +156,7 @@ MonoBehaviour:
   m_ThrowAngularVelocityScale: 0.25
   m_GravityOnDetach: 0
   m_RetainTransformParent: 1
-  cm: {fileID: 0}
   item: 0
---- !u!136 &9223127534441384180
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2526840367222400625}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.01
-  m_Height: 0.055130094
-  m_Direction: 2
-  m_Center: {x: 0, y: 0, z: 0.024325695}
 --- !u!1001 &7721878057109554499
 PrefabInstance:
   m_ObjectHideFlags: 0

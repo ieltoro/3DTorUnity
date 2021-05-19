@@ -75,14 +75,6 @@ public class HandManager : MonoBehaviour
             {
                 thumbAnim.SetBool("Touching", true);
             }
-            if (OVRInput.Get(OVRInput.Button.One, OVRInput.Controller.LTouch))
-            {
-                print("Pressed 1");
-            }
-            if (OVRInput.Get(OVRInput.Button.Two, OVRInput.Controller.LTouch))
-            {
-                print("Pressed 2");
-            }
         }
         else
         {
@@ -120,11 +112,9 @@ public class HandManager : MonoBehaviour
             }
             if (OVRInput.Get(OVRInput.Button.One, OVRInput.Controller.RTouch))
             {
-                print("Pressed 1");
             }
             if (OVRInput.Get(OVRInput.Button.Two, OVRInput.Controller.RTouch))
             {
-                print("Pressed 2");
             }
         }
         #endregion
@@ -143,7 +133,6 @@ public class HandManager : MonoBehaviour
     }
     public void HideHand(bool answer)
     {
-        print("Hide hand");
         handObj.SetActive(!answer);
     }
 }

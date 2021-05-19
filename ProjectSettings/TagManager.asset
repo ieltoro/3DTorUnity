@@ -15,6 +15,9 @@ TagManager:
   - ColorBullet
   - ColorTank
   - WaterTank
+  - Hand
+  - Sponge
+  - SpaceShip
   layers:
   - Default
   - TransparentFX
@@ -36,9 +39,9 @@ TagManager:
   - Hand
   - Tank
   - TankPos
-  - 
-  - 
-  - 
+  - Holding
+  - Sponge
+  - SpaceShip
   - 
   - 
   - 

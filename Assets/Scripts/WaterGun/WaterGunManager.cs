@@ -22,6 +22,13 @@ public class WaterGunManager : MonoBehaviour
         StopAllCoroutines();
         this.enabled = a;
         leftHand = hand;
+
+        if(a && tankOn)
+            tankon.GetComponent<Rigidbody>().isKinematic = true;
+
+        if (!a && tankOn)
+            tankon.GetComponent<Rigidbody>().isKinematic = false;
+        
     }
     private void Update()
     {
@@ -91,6 +98,7 @@ public class WaterGunManager : MonoBehaviour
 
     public void DropTank()
     {
+        print("DropHand");
         colider.enabled = false;
         tankon.transform.parent = null;
         tankon.GetComponent<Rigidbody>().isKinematic = false;

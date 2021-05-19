@@ -4,25 +4,23 @@ using UnityEngine;
 
 public class GravityChange : MonoBehaviour
 {
-    private void Start()
+
+    public void ChangeGravity(bool a)
     {
-        Physics.gravity = new Vector3(0, 0.0F, 0);
+        if(!a)
+        {
+            Physics.gravity = new Vector3(0, -5.81F, 0);
+        }
+        if(a)
+            StartCoroutine(GravityNoneCD());
+
     }
-    int i;
-    //private void Update()
-    //{
-    //    if(Input.GetKeyDown(KeyCode.Space))
-    //    {
-    //        i++;
-    //        if (i == 3)
-    //            i = 0;
-    //        print(i);
-    //        if(i == 0)
-    //            Physics.gravity = new Vector3(0, -5.81F, 0);
-    //        if (i == 1)
-    //            Physics.gravity = new Vector3(0, 0.3F, 0);
-    //        if (i == 2)
-    //            Physics.gravity = new Vector3(0, 0.0F, 0);
-    //    }
-    //}
+    IEnumerator GravityNoneCD()
+    {
+        Physics.gravity = new Vector3(0, 0.3F, 0);
+        yield return new WaitForSeconds(1f);
+        Physics.gravity = new Vector3(0, -0.3f, 0);
+        yield return new WaitForSeconds(1);
+        Physics.gravity = new Vector3(0, 0, 0);
+    }
 }

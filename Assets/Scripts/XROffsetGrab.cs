@@ -23,7 +23,10 @@ public class XROffsetGrab : XRGrabInteractable
 
     protected override void OnSelectEnter(XRBaseInteractor interactor)
     {
-        interactor.GetComponent<HandManager>().HideHand(true);
+        if(interactor.GetComponent<HandManager>() != null)
+        {
+            interactor.GetComponent<HandManager>().HideHand(true);
+        }
         if (interactor is XRDirectInteractor)
         {
             attachTransform.position = interactor.transform.position;
@@ -34,11 +37,30 @@ public class XROffsetGrab : XRGrabInteractable
             attachTransform.localPosition = initialAttachLocalPos;
             attachTransform.localRotation = initialAttachLocalRot;
         }
+        if(item.ToString() == "ColorTank")
+        {
+            if (interactor.tag == "Hand")
+            {
+                gameObject.layer = 20;
+                GetComponent<ColorTanks>().PickUpTank();
+            }
+        }
         base.OnSelectEnter(interactor);
     }
     protected override void OnSelectExit(XRBaseInteractor interactor)
     {
-        interactor.GetComponent<HandManager>().HideHand(false);
         base.OnSelectExit(interactor);
+        if (item.ToString() == "ColorTank")
+        {
+            if (interactor.tag == "Hand")
+            {
+                GetComponent<ColorTanks>().DroppedFromHand();
+                gameObject.layer = 18;
+            }
+        }
+        if (interactor.GetComponent<HandManager>() != null)
+        {
+            interactor.GetComponent<HandManager>().HideHand(false);
+        }
     }
 }

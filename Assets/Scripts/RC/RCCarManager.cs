@@ -11,10 +11,10 @@ public class RCCarManager : MonoBehaviour
     public WheelCollider frWC, flWC, rrWC, rlWC;
     public Transform frWT, flWT, rrWT, rlWT;
     [SerializeField] float maxSteering;
-    [SerializeField] float motorPower;
+    [SerializeField] float motorPower, holdDown;
     public bool leftHandHolding;
     bool reverse;
-
+    float startTime;
     public int wDrive;
 
     void Update()
@@ -46,14 +46,19 @@ public class RCCarManager : MonoBehaviour
                 {
                     reverse = false;
                 }
-            }
-            if(OVRInput.GetUp(OVRInput.Button.One, OVRInput.Controller.RTouch) || OVRInput.Get(OVRInput.Button.One, OVRInput.Controller.LTouch))
-            {
-                reverse = true;
-            }
-            if (OVRInput.GetUp(OVRInput.Button.Two, OVRInput.Controller.RTouch) || OVRInput.Get(OVRInput.Button.One, OVRInput.Controller.LTouch))
-            {
-                reverse = false;
+                if (OVRInput.GetDown(OVRInput.Button.SecondaryThumbstick))
+                {
+                    print("Pressing down");
+                    startTime = Time.time;
+                }
+                if (OVRInput.Get(OVRInput.Button.SecondaryThumbstick))
+                {
+                    if(startTime + holdDown >= Time.time)
+                    {
+                        startTime = Time.time;
+                        ResetCar();
+                    }
+                }
             }
         }
         //else
@@ -69,7 +74,6 @@ public class RCCarManager : MonoBehaviour
         UpdateSteering();
         UpdateWheel();
     }
-
     void UpdateSteering()
     {
         steeringAngle = maxSteering * inputJoystick.x;
@@ -78,7 +82,6 @@ public class RCCarManager : MonoBehaviour
         rrWC.steerAngle = -steeringAngle/3;
         rlWC.steerAngle = -steeringAngle/3;
     }
-
     void UpdateAcceleration()
     {
         if (reverse)
@@ -144,5 +147,10 @@ public class RCCarManager : MonoBehaviour
 
         //tr.position = pos;
         tr.rotation = rot;
+    }
+
+    public void ResetCar()
+    {
+        print("Reset");
     }
 }

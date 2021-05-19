@@ -449,7 +449,8 @@ MonoBehaviour:
   rrWT: {fileID: 4959825511654555637}
   rlWT: {fileID: 4959825512435535944}
   maxSteering: 40
-  motorPower: 8000
+  motorPower: 25000
+  holdDown: 3
   leftHandHolding: 0
   wDrive: 0
 --- !u!114 &9193054417443472862
@@ -526,7 +527,7 @@ MonoBehaviour:
   m_ThrowAngularVelocityScale: 0.25
   m_GravityOnDetach: 1
   m_RetainTransformParent: 1
-  rcRemote: 0
+  item: 0
 --- !u!1 &4959825511264602050
 GameObject:
   m_ObjectHideFlags: 0

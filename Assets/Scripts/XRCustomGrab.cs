@@ -6,13 +6,14 @@ using UnityEngine.XR.Interaction.Toolkit;
 public class XRCustomGrab : XRGrabInteractable
 {
     [SerializeField] CharacterManager cm;
-    public enum Item { None, Watergun, RCRemote, ColorBall, SpaceShip}
+    public enum Item { None, Watergun, RCRemote, ColorBall, SpaceShip, Sword}
     public Item item = Item.None;
 
     protected override void OnSelectEnter(XRBaseInteractor interactor)
     {
         bool a = true;
         print(interactor.transform.name);
+
         if (interactor.transform.name == "Left Hand")
         {
             interactor.GetComponent<HandManager>().HideHand(true);
@@ -26,7 +27,7 @@ public class XRCustomGrab : XRGrabInteractable
             }
             else if (item.ToString() == "ColorBall")
             {
-                interactor.GetComponent<BallCollision>().active = true;
+                GetComponent<BallCollision>().SetActive();
             }
             else if (item.ToString() == "SpaceShip")
             {
@@ -46,7 +47,7 @@ public class XRCustomGrab : XRGrabInteractable
             }
             else if (item.ToString() == "ColorBall")
             {
-                interactor.GetComponent<BallCollision>().active = true;
+                GetComponent<BallCollision>().SetActive();
             }
             else if (item.ToString() == "SpaceShip")
             {
@@ -60,6 +61,7 @@ public class XRCustomGrab : XRGrabInteractable
     protected override void OnSelectExit(XRBaseInteractor interactor)
     {
         bool a = false;
+
         if (interactor.transform.name == "Left Hand")
         {
             interactor.GetComponent<HandManager>().HideHand(false);
@@ -94,5 +96,4 @@ public class XRCustomGrab : XRGrabInteractable
         }
         base.OnSelectExit(interactor);
     }
-
 }

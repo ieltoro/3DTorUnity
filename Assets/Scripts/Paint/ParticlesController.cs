@@ -22,14 +22,11 @@ public class ParticlesController: MonoBehaviour{
     }
 
     void OnParticleCollision(GameObject other) {
-        print("Collision");
         int numCollisionEvents = part.GetCollisionEvents(other, collisionEvents);
         Paintable p = other.GetComponent<Paintable>();
         if(p != null){
-            print("Collision with paintable");
             for  (int i = 0; i< numCollisionEvents; i++){
 
-                print("Collision!!!!");
                 Vector3 pos = collisionEvents[i].intersection;
                 float radius = Random.Range(minRadius, maxRadius);
                 PaintManager.instance.paint(p, pos, radius, hardness, strength, paintColor);

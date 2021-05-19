@@ -1,6 +1,7 @@
 using UnityEngine;
 
 public class CollisionPainter : MonoBehaviour{
+   
     public Color paintColor;
     
     public float radius = 1;
