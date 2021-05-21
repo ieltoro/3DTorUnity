@@ -100,7 +100,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!65 &1622747055879204
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -127,9 +127,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   paintColor: {r: 0, g: 0, b: 0, a: 0}
-  radius: 0.53
-  strength: 1
-  hardness: 1
+  radius: 0.05
+  strength: 0.76
+  hardness: 0.88
 --- !u!114 &1622747055879214
 MonoBehaviour:
   m_ObjectHideFlags: 0
