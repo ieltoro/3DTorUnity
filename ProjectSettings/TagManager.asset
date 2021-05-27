@@ -18,6 +18,7 @@ TagManager:
   - Hand
   - Sponge
   - SpaceShip
+  - Potion
   layers:
   - Default
   - TransparentFX

@@ -108,10 +108,10 @@ Material:
     m_Ints: []
     m_Floats:
     - AlphaClip: -0.5
-    - AlphaCliping: -1.13
-    - GlowSize: 0.01
+    - AlphaCliping: 0
+    - GlowSize: 0.001
     - Size: 0.1
-    - Speed: 0.09
+    - Speed: 0.03
     - _AlphaClip: 0
     - _Blend: 2
     - _BumpScale: 1
