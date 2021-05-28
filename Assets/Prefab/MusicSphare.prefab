@@ -111,7 +111,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioS: {fileID: 1981904738092706037}
-  dispAmount: 10
+  dispAmount: 3
 --- !u!82 &1981904738092706037
 AudioSource:
   m_ObjectHideFlags: 0

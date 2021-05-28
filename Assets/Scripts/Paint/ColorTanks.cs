@@ -7,6 +7,7 @@ public class ColorTanks : MonoBehaviour
     [SerializeField] Rigidbody rb;
     [SerializeField] CapsuleCollider collider;
     [SerializeField] WaterGunManager wgm;
+    [SerializeField] Transform spawnPos;
     GameObject colorPistol;
 
     //private void OnTriggerEnter(Collider other)

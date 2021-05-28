@@ -79,7 +79,7 @@ Material:
     m_Floats:
     - FresnelSize: 1.9
     - Scale: 18
-    - Speed: 0.53
+    - Speed: 2.5
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
